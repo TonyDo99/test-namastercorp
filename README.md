@@ -1,14 +1,10 @@
-
 # Project Title
 
 Design an endpoint that will allow users to send an unordered Flight Itinerary array. The endpoint should order the itinerary and return the result to the user.
 
-
-
 ## Authors
 
 - [TonyDo99](https://github.com/TonyDo99)
-
 
 ## Environment Variables
 
@@ -25,11 +21,12 @@ To run this project, you will need to add the following environment variables to
 `DB_PASSWORD`
 
 `DB_DATABASE`
+
 ## Installation
 
 !!! MAKE SURE U HAVE DOCKER IN UR MACHINE
 
-``` bash
+```bash
 touch .env
 ```
 
@@ -43,7 +40,11 @@ DB_USERNAME=tony
 DB_PASSWORD=123123
 DB_DATABASE=namastercorp
 ```
-    
+
+```bash
+docker-compose --env-file .env up -d
+```
+
 ## API Reference
 
 #### Save flight
@@ -52,13 +53,13 @@ DB_DATABASE=namastercorp
   POST /api/booking-flight
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `flights`      | `array` | **Required**. unorder flight itinerary  |
-
+| Parameter | Type    | Description                            |
+| :-------- | :------ | :------------------------------------- |
+| `flights` | `array` | **Required**. unorder flight itinerary |
 
 #### Example input
-``` bash
+
+```bash
 flights: [
            {
                from: 'EZE',
@@ -76,5 +77,5 @@ flights: [
                from: 'GRU',
                to: 'SCL'
            }
-        ]	
+        ]
 ```
