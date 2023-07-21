@@ -25,18 +25,25 @@ To run this project, you will need to add the following environment variables to
 `DB_PASSWORD`
 
 `DB_DATABASE`
-## API Reference
+## Installation
 
-#### Get item
+!!! MAKE SURE U HAVE DOCKER IN UR MACHINE
 
-```http
-  POST /api/booking-flight
+``` bash
+touch .env
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `flights`      | `array` | **Required**. unorder flight itinerary  |
+fill enviroment variables
 
+```bash
+PORT=5000
+DB_HOST=mysql-container
+DB_PORT=3306
+DB_USERNAME=tony
+DB_PASSWORD=123123
+DB_DATABASE=namastercorp
+```
+    
 ## API Reference
 
 #### Save flight
