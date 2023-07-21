@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  app:
+    container_name: app-container
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - ${PORT}:${PORT}
+    command: yarn start:dev
+    depends_on:
+      - mysql
+
+  mysql:
+    container_name: mysql-container
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./scripts/initialize_db.sql:/docker-entrypoint-initdb.d/initialize_db.sql
+volumes:
+  pgdata:
