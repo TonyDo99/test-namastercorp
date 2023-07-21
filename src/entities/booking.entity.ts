@@ -9,7 +9,9 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity()
+@Entity({
+  name: 'tb_booking',
+})
 export class BookingEntity {
   @PrimaryGeneratedColumn()
   id: string;
